@@ -1,0 +1,86 @@
+<form [formGroup]="formProducto" (ngSubmit)="enviar()">
+  <div class="product-form">
+    <h2 class="form-title">Formulario de Registro</h2>
+    <hr>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" formControlName="id" id="id" name="id">
+         <!-- INICIO VALIDACIONES -->
+         <div class="errores" *ngIf="id?.invalid && (id?.dirty || id?.touched)">
+          <div *ngIf="id?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+          <div *ngIf="id?.errors?.['minlength']"><small class="text-danger">Esta campo es muy pequeño!</small></div>
+          <div *ngIf="id?.errors?.['maxlength']"><small class="text-danger">Esta campo es muy grande!</small></div>
+          <div *ngIf="id?.errors?.['idProducto']"><small class="text-danger">El id de producto ya existe!</small></div>
+        </div>
+        <!-- FIN VALIDACIONES -->
+      </div>
+      <div class="form-group">
+ 
+        <label for="name">Nombre</label>
+        <input class="form-control" type="text" formControlName="name" id="name" name="name">
+
+        <!-- INICIO VALIDACIONES -->
+        <div class="errores" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div *ngIf="name?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+          <div *ngIf="name?.errors?.['minlength']"><small class="text-danger">Esta campo es muy pequeño!</small></div>
+          <div *ngIf="name?.errors?.['maxlength']"><small class="text-danger">Esta campo es muy grande!</small></div>
+        </div>
+        <!-- FIN VALIDACIONES -->
+
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" formControlName="description" id="description" name="description">
+        <!-- INICIO VALIDACIONES -->
+        <div class="errores" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+          <div *ngIf="description?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+          <div *ngIf="description?.errors?.['minlength']"><small class="text-danger">Esta campo es muy pequeño!</small></div>
+          <div *ngIf="description?.errors?.['maxlength']"><small class="text-danger">Esta campo es muy grande!</small></div>
+        </div>
+        <!-- FIN VALIDACIONES -->
+      </div>
+      <div class="form-group">
+        <label for="logo">Logo</label>
+        <input type="text" formControlName="logo" id="logo" name="logo" >
+        <!-- INICIO VALIDACIONES --> 
+        <div class="errores" *ngIf="logo?.invalid && (logo?.dirty || logo?.touched)">
+          <div *ngIf="logo?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+        </div>
+        <!-- FIN VALIDACIONES -->
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="date_release">Fecha Liberación</label>
+        <input type="text" formControlName="date_release" id="date_release" name="date_release"> 
+        <!-- INICIO VALIDACIONES --> 
+        <div class="errores" *ngIf="date_release?.invalid && (date_release?.dirty || date_release?.touched)">
+          <div *ngIf="date_release?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+          <div *ngIf="date_release?.errors?.['dateRelease']"><small class="text-danger">La fecha debe ser superior a la actual!</small></div>
+        </div>
+
+        
+        <!-- FIN VALIDACIONES -->
+      </div>
+      <div class="form-group">
+        <label for="date_check">Fecha Revisión</label>
+        <input type="text" formControlName="date_check" id="date_check" name="date_check">
+        <!-- INICIO VALIDACIONES --> 
+        <div class="errores" *ngIf="formProducto?.errors && (date_check?.dirty || date_check?.touched)">
+          <div *ngIf="date_check?.errors?.['required']"><small class="text-danger">Esta campo es requerido!</small></div>
+          <div *ngIf="formProducto?.errors?.['dateCheck']"><small class="text-danger">La fecha debe ser un año superior a la fecha de lanzamiento!</small></div>
+        </div>
+        <!-- FIN VALIDACIONES -->
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="btn" (click)="resetearFormulario()" type="button">Reiniciar</button>
+      <button class="btn btn-a" [disabled]="!formProducto.valid" type="submit">Enviar</button>
+    </div>
+  </div>
+  
+</form>

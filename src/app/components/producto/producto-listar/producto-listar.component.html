@@ -1,0 +1,53 @@
+<div class="container">
+  <input
+    [(ngModel)]="textoBuscar"
+    (input)="filtrar_busqueda()"
+    class="btn-buscar"
+    type="text"
+    placeholder="Buscar"
+  />
+  <button class="btn btn-a" (click)="agregar()">Agregar</button>
+</div>
+
+@defer {
+<div class="tabla">
+  <table>
+    <tr>
+      <th>Logo</th>
+      <th>Nombre del Producto</th>
+      <th>Descripción</th>
+      <th>Fecha de liberación</th>
+      <th>Fecha de reestructuración</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of productos_filtrados">
+      <td><img appPlaceholder [src]="product.logo" /></td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.date_release | date : "dd/MM/yyyy" }}</td>
+      <td>{{ product.date_release | date : "dd/MM/yyyy" }}</td>
+      <td>
+        <div class="dropdown">
+          <button class="dropdown-button"><span class="puntos">...</span></button>
+          <div class="dropdown-opciones">
+            <a [routerLink]="['/editar/',product.id]">Editar</a>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <div class="footer">
+    <span>{{ obtener_cant_prod }} resultados</span>
+    <select [(ngModel)]="cant_prod_mostrar" (change)="filtrar_cantidad()">
+      <option>5</option>
+      <option>10</option>
+      <option>20</option>
+    </select>
+  </div>
+</div>
+} @loading (minimum 2s){
+<div class="tabla">
+  <p>Buscando...</p>
+</div>
+}

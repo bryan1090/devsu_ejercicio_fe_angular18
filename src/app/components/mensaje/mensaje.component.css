@@ -1,0 +1,10 @@
+.mensaje {
+    position: absolute;
+    background-color: wheat;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    right: 130px;
+    max-width: 20%;
+    
+  }

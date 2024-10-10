@@ -1,0 +1,103 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  margin: 30px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: rgb(244, 255, 254);
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:not(:first-child) {
+  border-top: 1px solid #ddd;
+}
+
+.estado{
+  padding: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-buscar{
+  border: 3px black ;
+  border-color: gray;
+  border-radius: 7px;
+  padding: 10px;
+}
+.tabla
+{
+  overflow: auto; 
+  max-width: 100%;
+  background-color: white;
+  margin: 20px;
+  min-height: 400px;
+}
+
+.tabla img{
+  max-width: 45px;
+}
+
+
+
+.dropdown-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+
+.puntos {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  transform: rotate(90deg)
+}
+
+.dropdown{
+  position: relative;
+  
+}
+.dropdown .dropdown-opciones{
+    display: none;
+    position: absolute;
+    top:-20px;
+    right: 30px;
+    z-index: 1;
+    padding: 10px;
+    background-color: floralwhite;
+    border: 2px solid grey;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px gray;
+    
+}
+
+.dropdown-opciones a{
+  text-decoration: none;
+  color: black;
+}
+.dropdown:hover .dropdown-opciones{
+  display: block;
+}
